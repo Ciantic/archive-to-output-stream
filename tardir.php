@@ -6,6 +6,8 @@
  * Tar balls a current directory and sends to php://output
  * 
  * If given $_GET["dir"] it only tarballs that directory
+ * 
+ * Repository: https://github.com/Ciantic/archive-to-output-stream/
  */
 
 $allow_root_tar = true;
@@ -64,7 +66,9 @@ return;
  *
  * Basically stripped the TAR parts from a Andreas Gohr's PHP Archive:
  * https://github.com/splitbrain/php-archive and made to work directly on
- * php://output so that it does not need to use memory besides the buffer size
+ * php://output so that it does not need to use memory besides the buffer size,
+ * the hardest work was already done by Andreas. I only cleaned the unneeded
+ * parts away and converted to use just SplFileInfo.
  */
 class Tar {
     protected $file = '';
